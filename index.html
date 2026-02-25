@@ -1,362 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>index.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIS 106 - Linux Fundamentals</title>
 
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+  <!-- Link to Bulma CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
+  <!-- Link to your custom stylesheet -->
+  <link href="styles.css" rel="stylesheet">
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
+  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
       startOnLoad: true,
@@ -365,283 +20,293 @@ code {
           : 'default'
     });
   </script>
-<h1 id="cis-106---linux-fundamentals">CIS 106 - Linux Fundamentals</h1>
-<h1 id="linux-fundamentals-notes">Linux Fundamentals Notes</h1>
-<hr>
-<h2 id="1-what-is-linux">1. What is Linux?</h2>
-<ul>
-<li>Linux is an open-source, Unix-like operating system.</li>
-<li>Based on the Linux kernel, created by Linus Torvalds in 1991.</li>
-<li>Used in:
-<ul>
-<li>Servers</li>
-<li>Cloud infrastructure</li>
-<li>Supercomputers</li>
-<li>Embedded systems</li>
-<li>Desktop environments</li>
-<li>Android (via modified Linux kernel)</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="2-linux-distributions-distros">2. Linux Distributions (Distros)</h2>
-<p>A Linux distribution bundles the Linux kernel with software and package managers.</p>
-<p>Popular distros:</p>
-<ul>
-<li>Ubuntu</li>
-<li>Debian</li>
-<li>Fedora</li>
-<li>CentOS</li>
-<li>Arch Linux</li>
-</ul>
-<hr>
-<h2 id="3-linux-architecture">3. Linux Architecture</h2>
-<pre class="hljs"><code><div>User Applications
-       ↓
-Shell
-       ↓
-Kernel
-       ↓
-Hardware
-</div></code></pre>
-<h3 id="kernel">Kernel</h3>
-<ul>
-<li>Core of the OS</li>
-<li>Manages:
-<ul>
-<li>CPU</li>
-<li>Memory</li>
-<li>Devices</li>
-<li>File systems</li>
-<li>Processes</li>
-</ul>
-</li>
-</ul>
-<h3 id="shell">Shell</h3>
-<ul>
-<li>Command-line interface (CLI)</li>
-<li>Acts as an interpreter between user and kernel</li>
-<li>Popular shells:
-<ul>
-<li>Bash</li>
-<li>Zsh</li>
-<li>Sh</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="4-linux-file-system-structure">4. Linux File System Structure</h2>
-<p>Linux uses a hierarchical directory structure starting from root <code>/</code>.</p>
-<table>
-<thead>
-<tr>
-<th>Directory</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/</code></td>
-<td>Root directory</td>
-</tr>
-<tr>
-<td><code>/home</code></td>
-<td>User home directories</td>
-</tr>
-<tr>
-<td><code>/root</code></td>
-<td>Root user home</td>
-</tr>
-<tr>
-<td><code>/etc</code></td>
-<td>Configuration files</td>
-</tr>
-<tr>
-<td><code>/bin</code></td>
-<td>Essential user binaries</td>
-</tr>
-<tr>
-<td><code>/sbin</code></td>
-<td>System binaries</td>
-</tr>
-<tr>
-<td><code>/usr</code></td>
-<td>User programs</td>
-</tr>
-<tr>
-<td><code>/var</code></td>
-<td>Variable files (logs, spool)</td>
-</tr>
-<tr>
-<td><code>/tmp</code></td>
-<td>Temporary files</td>
-</tr>
-<tr>
-<td><code>/dev</code></td>
-<td>Device files</td>
-</tr>
-<tr>
-<td><code>/proc</code></td>
-<td>Process &amp; kernel info</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="5-basic-linux-commands">5. Basic Linux Commands</h2>
-<h3 id="file--directory-commands">File &amp; Directory Commands</h3>
-<pre class="hljs"><code><div><span class="hljs-built_in">pwd</span>        <span class="hljs-comment"># Print working directory</span>
-ls         <span class="hljs-comment"># List files</span>
-ls -l      <span class="hljs-comment"># Long listing</span>
-<span class="hljs-built_in">cd</span> dir     <span class="hljs-comment"># Change directory</span>
-mkdir dir  <span class="hljs-comment"># Create directory</span>
-rmdir dir  <span class="hljs-comment"># Remove empty directory</span>
-rm file    <span class="hljs-comment"># Remove file</span>
-rm -r dir  <span class="hljs-comment"># Remove directory recursively</span>
-</div></code></pre>
-<hr>
-<h3 id="file-viewing--editing">File Viewing &amp; Editing</h3>
-<pre class="hljs"><code><div>cat file
-less file
-head file
-tail file
-nano file
-vi file
-</div></code></pre>
-<hr>
-<h3 id="search--filters">Search &amp; Filters</h3>
-<pre class="hljs"><code><div>grep <span class="hljs-string">"text"</span> file
-find /path -name file
-locate filename
-</div></code></pre>
-<hr>
-<h2 id="6-file-permissions">6. File Permissions</h2>
-<p>Linux has 3 types of permissions:</p>
-<ul>
-<li><code>r</code> → Read</li>
-<li><code>w</code> → Write</li>
-<li><code>x</code> → Execute</li>
-</ul>
-<p>Permission Groups:</p>
-<ul>
-<li>User (u)</li>
-<li>Group (g)</li>
-<li>Others (o)</li>
-</ul>
-<p>Example:</p>
-<pre class="hljs"><code><div>-rwxr-xr--
-</div></code></pre>
-<p>Change permissions:</p>
-<pre class="hljs"><code><div>chmod 755 file
-chmod u+x script.sh
-</div></code></pre>
-<p>Change ownership:</p>
-<pre class="hljs"><code><div>chown user file
-chgrp group file
-</div></code></pre>
-<hr>
-<h2 id="7-package-management">7. Package Management</h2>
-<p>Different distros use different package managers:</p>
-<ul>
-<li><code>apt</code> → Ubuntu / Debian</li>
-<li><code>dnf</code> → Fedora</li>
-<li><code>yum</code> → CentOS</li>
-<li><code>pacman</code> → Arch Linux</li>
-</ul>
-<p>Examples:</p>
-<pre class="hljs"><code><div>sudo apt update
-sudo apt install package_name
-sudo dnf install package_name
-</div></code></pre>
-<hr>
-<h2 id="8-process-management">8. Process Management</h2>
-<p>View running processes:</p>
-<pre class="hljs"><code><div>ps
-ps aux
-top
-htop
-</div></code></pre>
-<p>Manage processes:</p>
-<pre class="hljs"><code><div><span class="hljs-built_in">kill</span> PID
-<span class="hljs-built_in">kill</span> -9 PID
-</div></code></pre>
-<ul>
-<li>Each process has a PID (Process ID).</li>
-<li>Foreground vs Background processes (<code>&amp;</code> to run in background).</li>
-</ul>
-<hr>
-<h2 id="9-users-and-groups">9. Users and Groups</h2>
-<p>Create user:</p>
-<pre class="hljs"><code><div>sudo useradd username
-</div></code></pre>
-<p>Set password:</p>
-<pre class="hljs"><code><div>sudo passwd username
-</div></code></pre>
-<p>Switch user:</p>
-<pre class="hljs"><code><div>su username
-</div></code></pre>
-<p>Superuser:</p>
-<pre class="hljs"><code><div>sudo <span class="hljs-built_in">command</span>
-</div></code></pre>
-<hr>
-<h2 id="10-networking-basics">10. Networking Basics</h2>
-<p>Check IP:</p>
-<pre class="hljs"><code><div>ip a
-ifconfig
-</div></code></pre>
-<p>Test connectivity:</p>
-<pre class="hljs"><code><div>ping google.com
-</div></code></pre>
-<p>Download files:</p>
-<pre class="hljs"><code><div>wget url
-curl url
-</div></code></pre>
-<hr>
-<h2 id="11-redirection--pipes">11. Redirection &amp; Pipes</h2>
-<h3 id="output-redirection">Output Redirection</h3>
-<pre class="hljs"><code><div><span class="hljs-built_in">command</span> &gt; file      <span class="hljs-comment"># overwrite</span>
-<span class="hljs-built_in">command</span> &gt;&gt; file     <span class="hljs-comment"># append</span>
-</div></code></pre>
-<h3 id="input-redirection">Input Redirection</h3>
-<pre class="hljs"><code><div><span class="hljs-built_in">command</span> &lt; file
-</div></code></pre>
-<h3 id="pipes">Pipes</h3>
-<pre class="hljs"><code><div>command1 | command2
-</div></code></pre>
-<p>Example:</p>
-<pre class="hljs"><code><div>ls -l | grep <span class="hljs-string">".txt"</span>
-</div></code></pre>
-<hr>
-<h2 id="12-environment-variables">12. Environment Variables</h2>
-<p>View variables:</p>
-<pre class="hljs"><code><div>printenv
-<span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span>
-</div></code></pre>
-<p>Set temporary variable:</p>
-<pre class="hljs"><code><div><span class="hljs-built_in">export</span> VAR=value
-</div></code></pre>
-<hr>
-<h2 id="13-shell-scripting-basics">13. Shell Scripting Basics</h2>
-<p>Example script:</p>
-<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello, Linux"</span>
-</div></code></pre>
-<p>Make executable:</p>
-<pre class="hljs"><code><div>chmod +x script.sh
-./script.sh
-</div></code></pre>
-<hr>
-<h1 id="summary">Summary</h1>
-<p>Linux fundamentals include:</p>
-<ul>
-<li>Understanding the Linux architecture</li>
-<li>Navigating the file system</li>
-<li>Using basic commands</li>
-<li>Managing permissions</li>
-<li>Handling processes</li>
-<li>Managing packages</li>
-<li>Basic networking</li>
-<li>Shell scripting</li>
-</ul>
+</head>
+<body>
+  <div class="container">
+    <!-- Main Title -->
+    <h1 class="title has-text-centered" id="cis-106---linux-fundamentals">CIS 106 - Linux Fundamentals</h1>
+    
+    <!-- Subtitle -->
+    <h1 class="title is-2 has-text-centered" id="linux-fundamentals-notes">Linux Fundamentals Notes</h1>
 
+    <hr class="my-6">
+
+    <!-- Section 1 -->
+    <section>
+      <h2 class="subtitle is-3" id="1-what-is-linux">1. What is Linux?</h2>
+      <ul>
+        <li>Linux is an open-source, Unix-like operating system.</li>
+        <li>Based on the Linux kernel, created by Linus Torvalds in 1991.</li>
+        <li>Used in:
+          <ul>
+            <li>Servers</li>
+            <li>Cloud infrastructure</li>
+            <li>Supercomputers</li>
+            <li>Embedded systems</li>
+            <li>Desktop environments</li>
+            <li>Android (via modified Linux kernel)</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 2 -->
+    <section>
+      <h2 class="subtitle is-3" id="2-linux-distributions-distros">2. Linux Distributions (Distros)</h2>
+      <p>A Linux distribution bundles the Linux kernel with software and package managers.</p>
+      <p>Popular distros:</p>
+      <ul>
+        <li>Ubuntu</li>
+        <li>Debian</li>
+        <li>Fedora</li>
+        <li>CentOS</li>
+        <li>Arch Linux</li>
+      </ul>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 3 -->
+    <section>
+      <h2 class="subtitle is-3" id="3-linux-architecture">3. Linux Architecture</h2>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px; white-space: pre-wrap; word-wrap: break-word;">
+        <code>User Applications
+              ↓
+        Shell
+              ↓
+        Kernel
+              ↓
+        Hardware
+      </code>
+      </pre>
+
+      <h3 class="subtitle is-4" id="kernel">Kernel</h3>
+      <ul>
+        <li>Core of the OS</li>
+        <li>Manages:
+          <ul>
+            <li>CPU</li>
+            <li>Memory</li>
+            <li>Devices</li>
+            <li>File systems</li>
+            <li>Processes</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="subtitle is-4" id="shell">Shell</h3>
+      <ul>
+        <li>Command-line interface (CLI)</li>
+        <li>Acts as an interpreter between user and kernel</li>
+        <li>Popular shells:
+          <ul>
+            <li>Bash</li>
+            <li>Zsh</li>
+            <li>Sh</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 4 -->
+    <section>
+      <h2 class="subtitle is-3" id="4-linux-file-system-structure">4. Linux File System Structure</h2>
+      <p>Linux uses a hierarchical directory structure starting from root <code>/</code>.</p>
+      <table class="table is-bordered is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th>Directory</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/</code></td><td>Root directory</td></tr>
+          <tr><td><code>/home</code></td><td>User home directories</td></tr>
+          <tr><td><code>/root</code></td><td>Root user home</td></tr>
+          <tr><td><code>/etc</code></td><td>Configuration files</td></tr>
+          <tr><td><code>/bin</code></td><td>Essential user binaries</td></tr>
+          <tr><td><code>/sbin</code></td><td>System binaries</td></tr>
+          <tr><td><code>/usr</code></td><td>User programs</td></tr>
+          <tr><td><code>/var</code></td><td>Variable files (logs, spool)</td></tr>
+          <tr><td><code>/tmp</code></td><td>Temporary files</td></tr>
+          <tr><td><code>/dev</code></td><td>Device files</td></tr>
+          <tr><td><code>/proc</code></td><td>Process &amp; kernel info</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 5 -->
+    <section>
+      <h2 class="subtitle is-3" id="5-basic-linux-commands">5. Basic Linux Commands</h2>
+      <h3 class="subtitle is-4" id="file--directory-commands">File &amp; Directory Commands</h3>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>pwd          # Print working directory
+        ls           # List files
+        ls -l        # Long listing
+        cd dir       # Change directory
+        mkdir dir    # Create directory
+        rmdir dir    # Remove empty directory
+        rm file      # Remove file
+        rm -r dir    # Remove directory recursively
+        </code>
+      </pre>
+
+      <h3 class="subtitle is-4" id="file-viewing--editing">File Viewing &amp; Editing</h3>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>cat file
+        less file
+        head file
+        tail file
+        nano file
+        vi file
+        </code>
+      </pre>
+
+      <h3 class="subtitle is-4" id="search--filters">Search &amp; Filters</h3>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>grep "text" file
+        find /path -name file
+        locate filename
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 6 -->
+    <section>
+      <h2 class="subtitle is-3" id="6-file-permissions">6. File Permissions</h2>
+      <p>Linux has 3 types of permissions:</p>
+      <ul>
+        <li><code>r</code> → Read</li>
+        <li><code>w</code> → Write</li>
+        <li><code>x</code> → Execute</li>
+      </ul>
+      <p>Permission Groups:</p>
+      <ul>
+        <li>User (u)</li>
+        <li>Group (g)</li>
+        <li>Others (o)</li>
+      </ul>
+      <p>Example:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>-rwxr-xr--
+        </code>
+      </pre>
+      <p>Change permissions:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>chmod 755 file
+        chmod u+x script.sh
+        </code>
+      </pre>
+      <p>Change ownership:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>chown user file
+        chgrp group file
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 7 -->
+    <section>
+      <h2 class="subtitle is-3" id="7-package-management">7. Package Management</h2>
+      <p>Different distros use different package managers:</p>
+      <ul>
+        <li><code>apt</code> → Ubuntu / Debian</li>
+        <li><code>dnf</code> → Fedora</li>
+        <li><code>yum</code> → CentOS</li>
+        <li><code>pacman</code> → Arch Linux</li>
+      </ul>
+      <p>Examples:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>sudo apt update
+        sudo apt install package_name
+        sudo dnf install package_name
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 8 -->
+    <section>
+      <h2 class="subtitle is-3" id="8-process-management">8. Process Management</h2>
+      <p>View running processes:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>ps
+        ps aux
+        top
+        htop
+        </code>
+      </pre>
+      <p>Manage processes:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>kill PID
+        kill -9 PID
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 9 -->
+    <section>
+      <h2 class="subtitle is-3" id="9-users-and-groups">9. Users and Groups</h2>
+      <p>Create user:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>sudo useradd username
+        </code>
+      </pre>
+      <p>Set password:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>sudo passwd username
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Section 10 -->
+    <section>
+      <h2 class="subtitle is-3" id="10-networking-basics">10. Networking Basics</h2>
+      <p>Check IP:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>ip a
+        ifconfig
+        </code>
+      </pre>
+      <p>Test connectivity:</p>
+      <pre class="hljs code" style="background-color:#f7f7f7; padding: 1rem; border-radius: 3px;">
+        <code>ping google.com
+        </code>
+      </pre>
+    </section>
+
+    <hr class="my-6">
+
+    <!-- Final Summary Section -->
+    <section>
+      <h1 class="title is-2" id="summary">Summary</h1>
+      <p>Linux fundamentals include:</p>
+      <ul>
+        <li>Understanding the Linux architecture</li>
+        <li>Navigating the file system</li>
+        <li>Using basic commands</li>
+        <li>Managing permissions</li>
+        <li>Handling processes</li>
+        <li>Managing packages</li>
+        <li>Basic networking</li>
+        <li>Shell scripting</li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
